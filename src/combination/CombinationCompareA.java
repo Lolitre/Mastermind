@@ -13,58 +13,48 @@ import Common.Values;
  */
 public class CombinationCompareA {
 
-    /**
-     * @param args the command line arguments 
-     */
-    
-    public static String Compare(String Input, String solution){
-        String Output= "";
+    public static String Compare(String Input, String solution) {
+        String Output = "";
         int l = Input.length();
         int i = Values.Clenght;
         String datai = Input;
         String datas = solution;
-        
-        
-       
-        if(l != i){
+
+        if (l != i) {
             Output = ("Proposition invalid it should be ") + i + (" numbers long");
             return (Output);
-        }
-        
-        else if((Input).equals(solution) == true){
-            Output = "Congratulation ! You found the solution" + Values.restart;
-            return(Output);
-        }
-        else{
-             Values.CompareAcutalNbft = Values.CompareAcutalNbft +1;
+        } else if ((Input).equals(solution) == true) {
+            Output = ("<html>Congratulation ! You found the solution" + ("<br>") + Values.restart);
+            return (Output);
+        } else {
+            Values.CompareAcutalNbft++;
+            Values.VersusA++;
             int p = 0;
-            while(p < i){
-               
+            while (p < i) {
+
                 char in = datai.charAt(p);
                 char sol = datas.charAt(p);
-                if(in == sol){
-                    
+                if (in == sol) {
+
                     Output = Output += "= ";
-                    p= p + 1;
+                    p = p + 1;
 
-                }
-                else if(in > sol){
-                   
+                } else if (in > sol) {
+
                     Output = Output += "- ";
-                    p= p + 1;
+                    p = p + 1;
 
-                }
-                else{
-                    
+                } else {
+
                     Output = Output += "+ ";
-                    p= p + 1;
+                    p = p + 1;
 
                 }
             }
         }
-            Output = Output += "Your last guess was " + Input;
-            return(Output);   
- 
-     
+        
+        Output = Output += "Your last guess was " + Input;
+        return (Output);
+
     }
 }

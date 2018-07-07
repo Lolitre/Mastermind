@@ -5,6 +5,7 @@
  */
 package combination;
 
+import Common.Options;
 import Common.Values;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,12 +25,15 @@ public class CombinationVersus extends javax.swing.JFrame {
         this.setVisible(true);
         this.setTitle("Combination");
         initComponents();
+        Values.Framestate = 13;
         Values.CompareAcutalNbft = 0;
+        Values.VersusA = 0;
+        Values.VersusD = 0;
 
         String solution = CombinationRandomSol.Randomsol("");
-        //   if[(checkbox){
-        // System.out.println(solution);
-        //}
+        if (Values.DevEnable == 1) {
+            System.out.println(solution);
+        }
 
         InputA.addKeyListener(new KeyAdapter() {
             @Override
@@ -47,9 +51,14 @@ public class CombinationVersus extends javax.swing.JFrame {
         InputA.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input = InputA.getText();
-                String output = CombinationCompareA.Compare(input, solution);
-                OutputA.setText(output);
+                if (Values.VersusA > Values.VersusD) {
+                    String last = OutputA.getText();
+                    OutputA.setText("<html>You have to play the Defense part too <br>" + last);
+                } else {
+                    String input = InputA.getText();
+                    String output = CombinationCompareA.Compare(input, solution);
+                    OutputA.setText(output);
+                }
 
             }
 
@@ -70,16 +79,22 @@ public class CombinationVersus extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input = InputD.getText();
-                String output = CombinationCompareD.Compare(input);
-                OutputD.setText(output);
+                if (Values.VersusD > Values.VersusA) {
+                    String last = OutputD.getText();
+                    OutputD.setText("<html>You have to play the Attack part too <br>" + last);
+                } else {
+                    String input = InputD.getText();
+                    String output = CombinationCompareD.Compare(input);
+                    OutputD.setText(output);
+                }
+
             }
 
         });
         if (Values.CompareAcutalNbft == 0) {
             String output = CombinationCompareD.FirstA("0");
-            System.out.println(Values.CompareAcutalNbft);
             OutputD.setText(output);
+            Values.VersusD = 1;
         }
     }
 
@@ -100,6 +115,7 @@ public class CombinationVersus extends javax.swing.JFrame {
         jTextArea3 = new javax.swing.JTextArea();
         InputA = new javax.swing.JTextField();
         InputD = new javax.swing.JTextField();
+        Menu = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -112,9 +128,10 @@ public class CombinationVersus extends javax.swing.JFrame {
         jTextArea3.setText("Use this box to note\nyour secret \ncombination");
         jScrollPane5.setViewportView(jTextArea3);
 
-        InputD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputDActionPerformed(evt);
+        Menu.setText("Menu");
+        Menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMouseClicked(evt);
             }
         });
 
@@ -138,23 +155,24 @@ public class CombinationVersus extends javax.swing.JFrame {
                             .addComponent(InputD, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addContainerGap()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(OutputD, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(OutputA, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(InputA, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(InputD, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)))
+                .addGap(123, 123, 123)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InputA, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputD, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(111, Short.MAX_VALUE))
         );
@@ -162,13 +180,15 @@ public class CombinationVersus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InputDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputDActionPerformed
+    private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
+        new Options();
+        this.setVisible(false);
+    }//GEN-LAST:event_MenuMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField InputA;
     private javax.swing.JTextField InputD;
+    private javax.swing.JButton Menu;
     private javax.swing.JLabel OutputA;
     private javax.swing.JLabel OutputD;
     private javax.swing.JScrollPane jScrollPane3;

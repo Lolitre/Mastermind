@@ -5,6 +5,8 @@
  */
 package mastermind;
 
+import Common.Values;
+
 /**
  *
  * @author lolit
@@ -12,8 +14,11 @@ package mastermind;
 public class MasterMindRandomSol {
 
     public static String Randomsol(String solution) {
+        int i = 0;
+        
         String Output = "";
         Manipulation.CreateList();
+        Verification.RemoveIColors();
         Output = Manipulation.firstguess();
         return (Output);
 

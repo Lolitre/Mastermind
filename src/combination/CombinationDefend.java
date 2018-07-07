@@ -5,6 +5,7 @@
  */
 package combination;
 
+import Common.Options;
 import Common.Values;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,9 +52,8 @@ public class CombinationDefend extends javax.swing.JFrame {
         });
         if (Values.CompareAcutalNbft == 0) {
             String output = CombinationCompareD.FirstA("0");
-            System.out.println(Values.CompareNbT);
             Output.setText(output);
-            Values.CompareAcutalNbft = Values.CompareAcutalNbft + 1;
+            Values.CompareAcutalNbft++;
         }
 
     }
@@ -71,19 +71,21 @@ public class CombinationDefend extends javax.swing.JFrame {
         Input = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        Menu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        Input.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputActionPerformed(evt);
-            }
-        });
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jTextArea3.setText("Use this box to note\nyour secret \ncombination");
         jScrollPane5.setViewportView(jTextArea3);
+
+        Menu.setText("Menu");
+        Menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,11 +101,17 @@ public class CombinationDefend extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Output, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addContainerGap()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addComponent(Output, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,12 +126,14 @@ public class CombinationDefend extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputActionPerformed
+    private void MenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseClicked
+        new Options();
+        this.setVisible(false);
+    }//GEN-LAST:event_MenuMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Input;
+    private javax.swing.JButton Menu;
     private javax.swing.JLabel Output;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea3;

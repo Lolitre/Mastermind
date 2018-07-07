@@ -16,11 +16,6 @@ import java.util.Random;
  */
 public class CombinationCompareD {
 
-    /**
-     * @param args the command line arguments
-     */
-   
-
     public static String Compare(String Input) {
         String Output = "";
         String Outputs = "";
@@ -72,7 +67,10 @@ public class CombinationCompareD {
 
             }
         }
-
+        if (Values.Framestate == 12) {
+            Values.CompareAcutalNbft++;
+        }
+        Values.VersusD++;
         Output = Output += " Your last answer was " + Outputs;
         return (Output);
     }

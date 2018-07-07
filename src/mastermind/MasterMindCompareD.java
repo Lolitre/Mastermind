@@ -30,7 +30,6 @@ public class MasterMindCompareD {
             Output = "You won, the coumputer loose";
             return (Output);
         } else {
-            // For each one check to see if it still fits
             List<char[]> stack = new ArrayList<>(Values.Stack.size());
             for (char[] check : Values.Stack) {
                 if (Resolve.fits(check, Values.guess, colors, Bposition)) {
@@ -47,8 +46,10 @@ public class MasterMindCompareD {
             }
             Output = temp;
         }
-
-        Values.MastermindActualNbfT = Values.MastermindActualNbfT + 1;
+        if (Values.Framestate == 22) {
+            Values.MastermindActualNbfT++;
+        }
+        Values.VersusD++;
         return (Output);
     }
 

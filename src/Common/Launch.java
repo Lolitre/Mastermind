@@ -20,8 +20,10 @@ public class Launch {
     public static void main(String[] args) {
         
         ReadF.ReadProperties();
-        JFrame mainMenu = new MainMenu();
-        mainMenu.setVisible(true);
+        ReadLog4j read = new ReadLog4j();
+        read.TestLog();
+        MainMenu Mainemenu = new MainMenu();
+
         
     }
     

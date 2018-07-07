@@ -6,6 +6,7 @@
 package mastermind;
 
 import Common.MainMenu;
+import Common.Values;
 
 /**
  *
@@ -20,7 +21,7 @@ public class MasterMindMainf extends javax.swing.JFrame {
         this.setVisible(true);
         setTitle("MasterMind");
         initComponents();
-        
+        Values.Framestate = 2;
         
     }
 
@@ -55,6 +56,11 @@ public class MasterMindMainf extends javax.swing.JFrame {
         });
 
         VersusButtonMM.setText("Versus");
+        VersusButtonMM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VersusButtonMMMouseClicked(evt);
+            }
+        });
 
         MainMenuButton.setText("MainMenu");
         MainMenuButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,9 +110,14 @@ public class MasterMindMainf extends javax.swing.JFrame {
     }//GEN-LAST:event_AttackButtonMMMouseClicked
 
     private void DefendButtonMMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DefendButtonMMMouseClicked
-       this.setVisible(false);
-       new MasterMindDefend();
+        this.setVisible(false);
+        new MasterMindDefend();
     }//GEN-LAST:event_DefendButtonMMMouseClicked
+
+    private void VersusButtonMMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VersusButtonMMMouseClicked
+        new MasterMindVersus();
+        this.setVisible(false);
+    }//GEN-LAST:event_VersusButtonMMMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AttackButtonMM;

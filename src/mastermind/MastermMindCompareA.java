@@ -13,8 +13,6 @@ import Common.Values;
  */
 public class MastermMindCompareA {
 
-
-
     public static String Compare(String Input, String solution) {
         String Output = "";
         int l = Input.length();
@@ -36,33 +34,38 @@ public class MastermMindCompareA {
         } else if ((Input).equals(solution) == true) {
             Output = "Congratulation ! You found the solution";
             return (Output);
+        } else if (Values.MastermindActualNbfT > Values.MNbfT) {
+            Output = "Sorry you loose because you couldn't found the solution in less than " + Values.MNbfT + "turns";
+            return (Output);
         } else {
             while (p != i) {
                 int m = 0;
                 while (m < i) {
-                    if (Values.Parts[m] == Input.charAt(p)) {
+                    if (solution.charAt(m) == Input.charAt(p)) {
                         Values.vcolors[p] = 1;
                     }
-                    m = m + 1;
+                    m++;
                 }
                 if (solution.charAt(p) == Input.charAt(p)) {
                     Values.bpos[p] = 1;
 
                 }
-                p = p + 1;
+                p++;
 
             }
             int c = 0;
             while (c < i) {
                 if (Values.vcolors[c] == 1 && Values.bpos[c] == 1) {
                     B = B + 1;
+
                 } else if (Values.vcolors[c] == 1 && Values.bpos[c] != 1) {
                     C = C + 1;
 
                 }
                 c++;
             }
-
+            Values.MastermindActualNbfT++;
+            Values.VersusA++;
             Output = C + " Good Colors and " + B + " Good Position";
 
             return (Output);

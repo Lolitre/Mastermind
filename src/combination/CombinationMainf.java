@@ -109,7 +109,8 @@ public class CombinationMainf extends javax.swing.JFrame {
     }//GEN-LAST:event_DefendButtonCMouseClicked
 
     private void VersusButtonCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VersusButtonCMouseClicked
-        // TODO add your handling code here:
+        new CombinationVersus();
+        this.setVisible(false);
     }//GEN-LAST:event_VersusButtonCMouseClicked
 
     private void MainMenuButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainMenuButtonMouseClicked

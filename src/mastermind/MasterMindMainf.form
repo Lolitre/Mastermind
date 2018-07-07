@@ -72,6 +72,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Versus"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VersusButtonMMMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="MainMenuButton">
       <Properties>

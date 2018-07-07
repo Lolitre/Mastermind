@@ -18,7 +18,7 @@ public class Values {
     public static int[] CompareLast = new int[Clenght];
     public static char[] CompareIn = new char[Clenght];
     public static int CompareNbT = 10;
-    public static int CompareAcutalNbft = 0;
+    public static int CompareAcutalNbft;
     public static String restart = "You can restart or chosse another game by pressing the menu button on the top left";
     public static int Mlenght = 4;
     public static int Numberfcolor = 6;
@@ -35,4 +35,6 @@ public class Values {
     public static char[] fguess = new char[Values.Mlenght];
     public static char[] guess = new char[Values.Mlenght];
     public static int Framestate = 0;
+    public static int VersusA;
+    public static int VersusD;
 }
