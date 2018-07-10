@@ -5,8 +5,6 @@
  */
 package Common;
 
-import javax.swing.JFrame;
-
 
 /**
  *
@@ -20,8 +18,6 @@ public class Launch {
     public static void main(String[] args) {
         
         ReadF.ReadProperties();
-        ReadLog4j read = new ReadLog4j();
-        read.TestLog();
         MainMenu Mainemenu = new MainMenu();
 
         

@@ -54,7 +54,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         mastermind.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                combinationMouseClicked(evt);
+                mastermindMouseClicked(evt);
             }
 
         });

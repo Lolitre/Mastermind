@@ -24,7 +24,7 @@ public class ReadF {
 
             prop.load(input);
 
-            Values.Clenght = (Integer.parseInt(prop.getProperty("Lenght")));
+            Values.Clenght = (Integer.parseInt(prop.getProperty("CombinationLenght")));
             Values.CompareNbT = (Integer.parseInt(prop.getProperty("CombinationTry")));  
             Values.MNbfT = (Integer.parseInt(prop.getProperty("MasterTry")));
             Values.Numberfcolor = (Integer.parseInt(prop.getProperty("MasterMindNumberofcolors")));

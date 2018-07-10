@@ -5,6 +5,7 @@
  */
 package combination;
 
+import Common.ReadLog4j;
 import Common.Values;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,12 @@ import java.util.Random;
  * @author lolit
  */
 public class CombinationCompareD {
+        
 
     public static String Compare(String Input) {
+        
+
+        
         String Output = "";
         String Outputs = "";
         int l = Input.length();
@@ -48,12 +53,12 @@ public class CombinationCompareD {
                 r++;
             }
 
-            while (p < i) {
+                    while (p < i) {
                 if (Values.CompareIn[p] == '=') {
                     Output = Output += Values.CompareLast[p];
                     Outputs = Outputs += Values.CompareIn[p] + " ";
                     p = p + 1;
-                } else if (Values.CompareIn[p] == '+') {
+                } else if (Values.CompareIn[p] == '+') {                   
                     Output = Output += More.Compare(Values.CompareLast[p]);
                     Values.CompareLast[p] = More.Compare(Values.CompareLast[p]);
                     Outputs = Outputs += Values.CompareIn[p] + " ";
@@ -65,8 +70,8 @@ public class CombinationCompareD {
                     p = p + 1;
                 }
 
+                }
             }
-        }
         if (Values.Framestate == 12) {
             Values.CompareAcutalNbft++;
         }

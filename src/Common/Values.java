@@ -14,14 +14,14 @@ import java.util.List;
 public class Values {
 
     public static int DevEnable = 0;
-    public static int Clenght = 5;
+    public static int Clenght;
     public static int[] CompareLast = new int[Clenght];
     public static char[] CompareIn = new char[Clenght];
-    public static int CompareNbT = 10;
+    public static int CompareNbT ;
     public static int CompareAcutalNbft;
     public static String restart = "You can restart or chosse another game by pressing the menu button on the top left";
-    public static int Mlenght = 4;
-    public static int Numberfcolor = 6;
+    public static int Mlenght;
+    public static int Numberfcolor;
     public static char[] Parts = new char[Values.Mlenght];
     public static int MNbfT = 12;
     public static int MastermindActualNbfT;

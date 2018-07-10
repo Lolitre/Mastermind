@@ -18,11 +18,10 @@ public class ReadLog4j {
     private Log log = LogFactory.getLog(ReadLog4j.class);
 
     public void TestLog() {
-        log.debug("msg de debug");
+        log.debug("msg de de bug");
         log.fatal("msg d'erreur fatal");
         log.warn("msg d'avertissement");
         log.error("msg d'erreur");
         log.info("msg d'information");
-        
     }
 }
