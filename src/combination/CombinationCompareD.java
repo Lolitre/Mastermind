@@ -5,7 +5,6 @@
  */
 package combination;
 
-import Common.ReadLog4j;
 import Common.Values;
 import java.util.ArrayList;
 import java.util.List;

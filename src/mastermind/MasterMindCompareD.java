@@ -21,8 +21,7 @@ public class MasterMindCompareD {
         String Output = "";
         Random rand = new Random();
         Values val = Values.getInstance();
-        System.out.print("  " + val.Stack.size());
-        System.out.println(val.Stack.size());
+
         Resolve solve = new Resolve();
         if (Bposition == val.Mlenght) {
             Output = "The solution is " + Manipulation.GuesstToOut();
@@ -42,7 +41,6 @@ public class MasterMindCompareD {
                 val.Stack = stack;
 
             }
-            System.out.println(val.Stack.size());
             val.guess = val.Stack.get(rand.nextInt(val.Stack.size()));
             int c = 0;
             String temp = "";
