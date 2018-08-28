@@ -27,6 +27,9 @@ public class ReadF {
             val.MNbfT = (Integer.parseInt(prop.getProperty("MMT")));
             val.Numberfcolor = (Integer.parseInt(prop.getProperty("MMN")));
             val.Mlenght = (Integer.parseInt(prop.getProperty("MML")));
+            if (val.DevEnable ==0){
+                val.DevEnable = (Integer.parseInt(prop.getProperty("DV")));
+            }
         } catch (Exception e) {
            System.out.println("File loaded");
 
